@@ -587,6 +587,7 @@ namespace
             check_read_fails( "{\n  name\":\"value\"}", 2, 7,  "no colon in pair" );
             check_read_fails( "{\"name\":foo}",         1, 9,  "not a value" );
             check_read_fails( "{\"name\":value\"}",     1, 9,  "not a value" );
+            check_read_fails( "{'name':\"value\"}",     1, 2,  "not an object" );
         }
 
         typedef vector< int > Ints;

@@ -462,7 +462,8 @@ namespace json_spirit
                     ;
 
                 value_
-                    = string_[ new_str ] 
+                    = single_quoted_string_[ new_str ] 
+                    | double_quoted_string_[ new_str ] 
                     | number_ 
                     | object_ 
                     | array_ 
@@ -482,7 +483,7 @@ namespace json_spirit
                     ;
 
                 pair_
-                    = (string_[ new_name ] | identifier_[ new_identifier ]) 
+                    = (double_quoted_string_[ new_name ] | identifier_[ new_identifier ]) 
                     >> ( ':' | eps_p[ &throw_not_colon ] )
                     >> ( value_ | eps_p[ &throw_not_value ] )
                     ;
@@ -497,7 +498,6 @@ namespace json_spirit
                     = value_ >> *( ',' >> value_ ) >> !ch_p(',')
                     ;
 
-                string_=double_quoted_string_ | single_quoted_string_;
                 double_quoted_string_ 
                     = lexeme_d // this causes white space and what would appear to be comments inside a string to be retained
                       [
@@ -532,7 +532,7 @@ namespace json_spirit
                     ;
             }
 
-            spirit_namespace::rule< ScannerT > json_, object_, members_, pair_, array_, elements_, value_, string_, single_quoted_string_, double_quoted_string_, number_, identifier_;
+            spirit_namespace::rule< ScannerT > json_, object_, members_, pair_, array_, elements_, value_, single_quoted_string_, double_quoted_string_, number_, identifier_;
 
             const spirit_namespace::rule< ScannerT >& start() const { return json_; }
         };
