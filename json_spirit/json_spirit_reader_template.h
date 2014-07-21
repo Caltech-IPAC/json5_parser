@@ -298,16 +298,6 @@ namespace json_spirit
             add_to_current( d );
         }
 
-        // void new_infinity()
-        // {
-        //     add_to_current( std::numeric_limits<double>::infinity() );
-        // }
-
-        // void new_minus_infinity()
-        // {
-        //     add_to_current( -std::numeric_limits<double>::infinity() );
-        // }
-
         void new_infinity( Iter_type begin, Iter_type end )
         {
             assert( is_eq( begin, end, "Infinity" ) );
