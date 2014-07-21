@@ -157,6 +157,7 @@ namespace
             test_syntax( INT_MIN, INT_MAX );
             test_syntax( LLONG_MIN, LLONG_MAX );
             test_syntax( "[1 2 3]", false );
+            test_syntax( "[1,\n2,\n3,]");
         }
 
         Value_type read_cstr( const char* c_str )
@@ -208,7 +209,7 @@ namespace
               Value_type value;
 
               read_cstr( "{\n"
-                         "    name1 : \"value 1\"\n"
+                         "    name1 : \"value 1\",\n"
                          "}", value );
 
               add_c_str( obj, "name1", "value 1" );
@@ -436,7 +437,7 @@ namespace
             Value_type value;
 
             const String_type in_s = to_str( "[1.200000000000000,1.234567890123456e+125,-1.234000000000000e-123,"
-                                             " 1.000000000000000e-123,1234567890.123456,123]" );
+                                             " 1.000000000000000e-123,1234567890.123456,123,]" );
 
             basic_istringstream< Char_type > is( in_s );
 
@@ -580,7 +581,6 @@ namespace
             check_read_fails( "[1,2?",                  1, 5,  "not an array" );
             check_read_fails( "[1,2}",                  1, 5,  "not an array" );
             check_read_fails( "[1;2]",                  1, 3,  "not an array" );
-            check_read_fails( "[1,\n2,\n3,]",           3, 2,  "not an array" );
             check_read_fails( "{\"name\":\"value\"]",   1, 16, "not an object" );
             check_read_fails( "{\"name\",\"value\"}",   1, 8,  "no colon in pair" );
             check_read_fails( "{\n1:\"value\"}",        2, 1,  "not an object" );
