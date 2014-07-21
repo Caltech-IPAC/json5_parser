@@ -248,6 +248,15 @@ namespace json_spirit
             name_ = get_str< String_type >( begin, end );
         }
 
+        void new_identifier( Iter_type begin, Iter_type end )
+        {
+            assert( current_p_->type() == obj_type );
+
+            String_type result;
+            result.append(begin,end);
+            name_ = result;
+        }
+
         void new_str( Iter_type begin, Iter_type end )
         {
             add_to_current( get_str< String_type >( begin, end ) );
@@ -437,6 +446,7 @@ namespace json_spirit
                 Char_action   begin_array( boost::bind( &Semantic_actions_t::begin_array, &self.actions_, _1 ) );
                 Char_action   end_array  ( boost::bind( &Semantic_actions_t::end_array,   &self.actions_, _1 ) );
                 Str_action    new_name   ( boost::bind( &Semantic_actions_t::new_name,    &self.actions_, _1, _2 ) );
+                Str_action    new_identifier( boost::bind( &Semantic_actions_t::new_identifier, &self.actions_, _1, _2 ) );
                 Str_action    new_str    ( boost::bind( &Semantic_actions_t::new_str,     &self.actions_, _1, _2 ) );
                 Str_action    new_true   ( boost::bind( &Semantic_actions_t::new_true,    &self.actions_, _1, _2 ) );
                 Str_action    new_false  ( boost::bind( &Semantic_actions_t::new_false,   &self.actions_, _1, _2 ) );
@@ -472,7 +482,7 @@ namespace json_spirit
                     ;
 
                 pair_
-                    = string_[ new_name ]
+                    = (string_[ new_name ] | identifier_[ new_identifier ]) 
                     >> ( ':' | eps_p[ &throw_not_colon ] )
                     >> ( value_ | eps_p[ &throw_not_value ] )
                     ;
@@ -499,6 +509,9 @@ namespace json_spirit
                       ]
                     ;
 
+                identifier_
+                  = (alpha_p | ch_p('_') | ch_p('$')) >> *(alnum_p | ch_p('_') | ch_p('$'));
+
                 number_
                     = strict_real_p[ new_real   ] 
                     | int64_p      [ new_int    ]
@@ -506,7 +519,7 @@ namespace json_spirit
                     ;
             }
 
-            spirit_namespace::rule< ScannerT > json_, object_, members_, pair_, array_, elements_, value_, string_, number_;
+            spirit_namespace::rule< ScannerT > json_, object_, members_, pair_, array_, elements_, value_, string_, number_, identifier_;
 
             const spirit_namespace::rule< ScannerT >& start() const { return json_; }
         };

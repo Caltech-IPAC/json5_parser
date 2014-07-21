@@ -203,6 +203,19 @@ namespace
         {
             check_reading( "{\n}" );
 
+            {
+              Object_type obj;
+              Value_type value;
+
+              read_cstr( "{\n"
+                         "    name1 : \"value 1\"\n"
+                         "}", value );
+
+              add_c_str( obj, "name1", "value 1" );
+
+              check_eq( value.get_obj(), obj );
+            }
+
             Object_type obj;
             Value_type value;
 
@@ -570,9 +583,8 @@ namespace
             check_read_fails( "[1,\n2,\n3,]",           3, 2,  "not an array" );
             check_read_fails( "{\"name\":\"value\"]",   1, 16, "not an object" );
             check_read_fails( "{\"name\",\"value\"}",   1, 8,  "no colon in pair" );
-            check_read_fails( "{name:\"value\"}",       1, 2,  "not an object" );
             check_read_fails( "{\n1:\"value\"}",        2, 1,  "not an object" );
-            check_read_fails( "{\n  name\":\"value\"}", 2, 3,  "not an object" );
+            check_read_fails( "{\n  name\":\"value\"}", 2, 7,  "no colon in pair" );
             check_read_fails( "{\"name\":foo}",         1, 9,  "not a value" );
             check_read_fails( "{\"name\":value\"}",     1, 9,  "not a value" );
         }
