@@ -544,6 +544,9 @@ namespace
         void test_values()
         {
             check_value( "1",        1 );
+            check_value( "+Infinity", std::numeric_limits<double>::infinity() );
+            check_value( "Infinity", std::numeric_limits<double>::infinity() );
+            check_value( "-Infinity", -std::numeric_limits<double>::infinity() );
             check_value( "1.5",      1.5 );
             check_value( "\"Test\"", to_str( "Test" ) );
             check_value( "true",     true );

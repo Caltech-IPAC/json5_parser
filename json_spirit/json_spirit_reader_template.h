@@ -298,6 +298,30 @@ namespace json_spirit
             add_to_current( d );
         }
 
+        // void new_infinity()
+        // {
+        //     add_to_current( std::numeric_limits<double>::infinity() );
+        // }
+
+        // void new_minus_infinity()
+        // {
+        //     add_to_current( -std::numeric_limits<double>::infinity() );
+        // }
+
+        void new_infinity( Iter_type begin, Iter_type end )
+        {
+            assert( is_eq( begin, end, "Infinity" ) );
+
+            add_to_current( std::numeric_limits<double>::infinity() );
+        }
+
+        void new_minus_infinity( Iter_type begin, Iter_type end )
+        {
+            assert( is_eq( begin, end, "-Infinity" ) );
+
+            add_to_current( -std::numeric_limits<double>::infinity() );
+        }
+
     private:
 
         Semantic_actions& operator=( const Semantic_actions& ); 
@@ -452,6 +476,8 @@ namespace json_spirit
                 Str_action    new_false  ( boost::bind( &Semantic_actions_t::new_false,   &self.actions_, _1, _2 ) );
                 Str_action    new_null   ( boost::bind( &Semantic_actions_t::new_null,    &self.actions_, _1, _2 ) );
                 Real_action   new_real   ( boost::bind( &Semantic_actions_t::new_real,    &self.actions_, _1 ) );
+                Str_action    new_infinity ( boost::bind( &Semantic_actions_t::new_infinity, &self.actions_, _1, _2 ) );
+                Str_action    new_minus_infinity ( boost::bind( &Semantic_actions_t::new_minus_infinity, &self.actions_, _1, _2 ) );
                 Int_action    new_int    ( boost::bind( &Semantic_actions_t::new_int,     &self.actions_, _1 ) );
                 Uint64_action new_uint64 ( boost::bind( &Semantic_actions_t::new_uint64,  &self.actions_, _1 ) );
 
@@ -470,6 +496,8 @@ namespace json_spirit
                     | str_p( "true" ) [ new_true  ] 
                     | str_p( "false" )[ new_false ] 
                     | str_p( "null" ) [ new_null  ]
+                    | (!ch_p('+') >> str_p( "Infinity" ) [ new_infinity ])
+                    | str_p( "-Infinity" ) [ new_minus_infinity ]
                     ;
 
                 object_ 
