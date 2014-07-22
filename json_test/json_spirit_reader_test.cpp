@@ -158,6 +158,8 @@ namespace
             test_syntax( LLONG_MIN, LLONG_MAX );
             test_syntax( "[1 2 3]", false );
             test_syntax( "[1,\n2,\n3,]");
+            test_syntax( "[0xfreedom]",false);
+            test_syntax( "[0xreefer]",false);
         }
 
         Value_type read_cstr( const char* c_str )
@@ -580,6 +582,7 @@ namespace
             check_read_fails( "\n\n foo",               3, 2,  "not a value" );
             check_read_fails( "!!!",                    1, 1,  "not a value" );
             check_read_fails( "\"bar",                  1, 1,  "not a value" );
+            check_read_fails( "0xreefer",               1, 3,  "not a hexadecimal number" );
             check_read_fails( "bar\"",                  1, 1,  "not a value" );
             check_read_fails( "[1}",                    1, 3,  "not an array" );
             check_read_fails( "[1,2?",                  1, 5,  "not an array" );
@@ -590,6 +593,7 @@ namespace
             check_read_fails( "{\n1:\"value\"}",        2, 1,  "not an object" );
             check_read_fails( "{\n  name\":\"value\"}", 2, 7,  "no colon in pair" );
             check_read_fails( "{\"name\":foo}",         1, 9,  "not a value" );
+            check_read_fails( "{\"name\":0xfreedom}",   1, 12, "not an object" );
             check_read_fails( "{\"name\":value\"}",     1, 9,  "not a value" );
             check_read_fails( "{'name':\"value\"}",     1, 2,  "not an object" );
         }

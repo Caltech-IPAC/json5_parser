@@ -411,6 +411,11 @@ namespace json_spirit
     	    throw_error( begin, "not a value" );
         }
 
+        static void throw_not_hex( Iter_type begin, Iter_type end )
+        {
+    	    throw_error( begin, "not a hexadecimal number" );
+        }
+
         static void throw_not_array( Iter_type begin, Iter_type end )
         {
     	    throw_error( begin, "not an array" );
@@ -542,10 +547,10 @@ namespace json_spirit
                     ;
 
                 identifier_
-                  = (alpha_p | ch_p('_') | ch_p('$')) >> *(alnum_p | ch_p('_') | ch_p('$'));
+                    = (alpha_p | ch_p('_') | ch_p('$')) >> *(alnum_p | ch_p('_') | ch_p('$'));
 
                 number_
-                    = ( str_p("0x") >> hex_p [ new_int ] )
+                  = ( str_p("0x") >> (hex_p[ new_int ] | eps_p[ &throw_not_hex ] ) )
                     | strict_real_p[ new_real   ] 
                     | int64_p      [ new_int    ]
                     | uint64_p     [ new_uint64 ]
