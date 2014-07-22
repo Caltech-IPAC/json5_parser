@@ -547,6 +547,7 @@ namespace
             check_value( "+Infinity", std::numeric_limits<double>::infinity() );
             check_value( "Infinity", std::numeric_limits<double>::infinity() );
             check_value( "-Infinity", -std::numeric_limits<double>::infinity() );
+            check_value( "0xfe",     0xfe );
             check_value( "1.5",      1.5 );
             check_value( "\"Test\"", to_str( "Test" ) );
             check_value( "true",     true );

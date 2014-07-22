@@ -544,10 +544,10 @@ namespace json_spirit
                   = (alpha_p | ch_p('_') | ch_p('$')) >> *(alnum_p | ch_p('_') | ch_p('$'));
 
                 number_
-                    = strict_real_p[ new_real   ] 
+                    = ( str_p("0x") >> hex_p [ new_int ] )
+                    | strict_real_p[ new_real   ] 
                     | int64_p      [ new_int    ]
                     | uint64_p     [ new_uint64 ]
-                    | ( str_p("0x") >> hex_p [ new_uint64 ])
                     ;
             }
 
