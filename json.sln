@@ -11,7 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "json_map_demo", "json_map_d
 		{BE262A86-CC26-4B25-A877-883ED2688CEC} = {BE262A86-CC26-4B25-A877-883ED2688CEC}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "json_spirit_lib", "json_spirit\json_spirit.vcproj", "{BE262A86-CC26-4B25-A877-883ED2688CEC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "json5_parser_lib", "json5_parser\json5_parser.vcproj", "{BE262A86-CC26-4B25-A877-883ED2688CEC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "json_demo", "json_demo\json_demo.vcproj", "{EFA1226E-A818-481B-A094-93A22D68130C}"
 	ProjectSection(ProjectDependencies) = postProject

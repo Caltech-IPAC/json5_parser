@@ -3,15 +3,15 @@
 
 // json spirit version 4.08
 
-#include "json_spirit_value_test.h"
+#include "json5_parser_value_test.h"
 #include "utils_test.h"
-#include "json_spirit_value.h"
+#include "json5_parser_value.h"
 #include <limits.h>
 #include <list>
 #include <boost/assign/list_of.hpp>
 #include <boost/integer_traits.hpp>
 
-using namespace json_spirit;
+using namespace json5_parser;
 using namespace std;
 using namespace boost;
 using namespace boost::assign;
@@ -497,7 +497,7 @@ namespace
     }
 }
 
-void json_spirit::test_value()
+void json5_parser::test_value()
 {
 #ifdef JSON_SPIRIT_VALUE_ENABLED
     Object obj;

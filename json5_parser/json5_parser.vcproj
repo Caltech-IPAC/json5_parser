@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="json_spirit_lib"
+	Name="json5_parser_lib"
 	ProjectGUID="{BE262A86-CC26-4B25-A877-883ED2688CEC}"
-	RootNamespace="json_spirit"
+	RootNamespace="json5_parser"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -153,11 +153,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\json_spirit_reader.cpp"
+				RelativePath=".\json5_parser_reader.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer.cpp"
+				RelativePath=".\json5_parser_writer.cpp"
 				>
 			</File>
 		</Filter>
@@ -167,43 +167,43 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\json_spirit.h"
+				RelativePath=".\json5_parser.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_error_position.h"
+				RelativePath=".\json5_parser_error_position.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_reader.h"
+				RelativePath=".\json5_parser_reader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_reader_template.h"
+				RelativePath=".\json5_parser_reader_template.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_stream_reader.h"
+				RelativePath=".\json5_parser_stream_reader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_utils.h"
+				RelativePath=".\json5_parser_utils.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_value.h"
+				RelativePath=".\json5_parser_value.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer.h"
+				RelativePath=".\json5_parser_writer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer_options.h"
+				RelativePath=".\json5_parser_writer_options.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer_template.h"
+				RelativePath=".\json5_parser_writer_template.h"
 				>
 			</File>
 		</Filter>

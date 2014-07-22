@@ -10,8 +10,8 @@
 # pragma once
 #endif
 
-#include "json_spirit_value.h"
-#include "json_spirit_error_position.h"
+#include "json5_parser_value.h"
+#include "json5_parser_error_position.h"
 
 //#define BOOST_SPIRIT_THREADSAFE  // uncomment for multithreaded use, requires linking to boost.thread
 
@@ -35,7 +35,7 @@
     #define spirit_namespace boost::spirit
 #endif
 
-namespace json_spirit
+namespace json5_parser
 {
     const spirit_namespace::int_parser < boost::int64_t >  int64_p  = spirit_namespace::int_parser < boost::int64_t  >();
     const spirit_namespace::uint_parser< boost::uint64_t > uint64_p = spirit_namespace::uint_parser< boost::uint64_t >();

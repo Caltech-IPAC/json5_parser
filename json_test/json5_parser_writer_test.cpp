@@ -3,15 +3,15 @@
 
 // json spirit version 4.08
 
-#include "json_spirit_writer_test.h"
+#include "json5_parser_writer_test.h"
 #include "utils_test.h"
-#include "json_spirit_writer.h"
-#include "json_spirit_value.h" 
+#include "json5_parser_writer.h"
+#include "json5_parser_value.h" 
 
 #include <sstream>
 #include <boost/integer_traits.hpp>
 
-using namespace json_spirit;
+using namespace json5_parser;
 using namespace std;
 using namespace boost;
 
@@ -768,7 +768,7 @@ namespace
 #endif
 }
 
-void json_spirit::test_writer()
+void json5_parser::test_writer()
 {
 #ifdef JSON_SPIRIT_VALUE_ENABLED
     Test_runner< Config  >().run_tests();

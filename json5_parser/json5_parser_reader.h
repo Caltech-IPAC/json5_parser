@@ -10,11 +10,11 @@
 # pragma once
 #endif
 
-#include "json_spirit_value.h"
-#include "json_spirit_error_position.h"
+#include "json5_parser_value.h"
+#include "json5_parser_error_position.h"
 #include <iostream>
 
-namespace json_spirit
+namespace json5_parser
 {
     // functions to reads a JSON values
 

@@ -177,15 +177,15 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\json_spirit_reader_test.cpp"
+				RelativePath=".\json5_parser_reader_test.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_value_test.cpp"
+				RelativePath=".\json5_parser_value_test.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer_test.cpp"
+				RelativePath=".\json5_parser_writer_test.cpp"
 				>
 			</File>
 			<File
@@ -199,15 +199,15 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\json_spirit_reader_test.h"
+				RelativePath=".\json5_parser_reader_test.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_value_test.h"
+				RelativePath=".\json5_parser_value_test.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer_test.h"
+				RelativePath=".\json5_parser_writer_test.h"
 				>
 			</File>
 			<File

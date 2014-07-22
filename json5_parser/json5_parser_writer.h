@@ -10,11 +10,11 @@
 # pragma once
 #endif
 
-#include "json_spirit_value.h"
-#include "json_spirit_writer_options.h"
+#include "json5_parser_value.h"
+#include "json5_parser_writer_options.h"
 #include <iostream>
 
-namespace json_spirit
+namespace json5_parser
 {
     // these functions to convert JSON Values to text
     // note the precision used outputing doubles defaults to 17, 

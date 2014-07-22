@@ -27,7 +27,7 @@
 #define JSON_SPIRIT_MVALUE_ENABLED
 #define JSON_SPIRIT_WMVALUE_ENABLED
 
-namespace json_spirit
+namespace json5_parser
 {
     enum Value_type{ obj_type, array_type, str_type, bool_type, int_type, real_type, null_type };
 

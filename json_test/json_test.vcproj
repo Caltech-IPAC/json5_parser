@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../json_spirit/"
+				AdditionalIncludeDirectories="../json5_parser/"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -121,7 +121,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
-				AdditionalIncludeDirectories="../json_spirit/"
+				AdditionalIncludeDirectories="../json5_parser/"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				BufferSecurityCheck="false"
@@ -185,23 +185,23 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\json_spirit_reader_test.cpp"
+				RelativePath=".\json5_parser_reader_test.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_stream_reader_test.cpp"
+				RelativePath=".\json5_parser_stream_reader_test.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_utils_test.cpp"
+				RelativePath=".\json5_parser_utils_test.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_value_test.cpp"
+				RelativePath=".\json5_parser_value_test.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer_test.cpp"
+				RelativePath=".\json5_parser_writer_test.cpp"
 				>
 			</File>
 			<File
@@ -219,23 +219,23 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\json_spirit_reader_test.h"
+				RelativePath=".\json5_parser_reader_test.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_stream_reader_test.h"
+				RelativePath=".\json5_parser_stream_reader_test.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_utils_test.h"
+				RelativePath=".\json5_parser_utils_test.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_value_test.h"
+				RelativePath=".\json5_parser_value_test.h"
 				>
 			</File>
 			<File
-				RelativePath=".\json_spirit_writer_test.h"
+				RelativePath=".\json5_parser_writer_test.h"
 				>
 			</File>
 			<File

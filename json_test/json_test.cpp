@@ -3,17 +3,17 @@
 
 // json spirit version 4.08
 
-#include "json_spirit_value_test.h"
-#include "json_spirit_writer_test.h"
-#include "json_spirit_reader_test.h"
-#include "json_spirit_stream_reader_test.h"
-#include "json_spirit_utils_test.h"
+#include "json5_parser_value_test.h"
+#include "json5_parser_writer_test.h"
+#include "json5_parser_reader_test.h"
+#include "json5_parser_stream_reader_test.h"
+#include "json5_parser_utils_test.h"
 
 #include <string>
 #include <iostream>
 
 using namespace std;
-using namespace json_spirit;
+using namespace json5_parser;
 
 int main()
 {

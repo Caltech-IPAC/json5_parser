@@ -3,13 +3,13 @@
 
 // json spirit version 4.08
 
-#include "json_spirit_utils_test.h"
+#include "json5_parser_utils_test.h"
 #include "utils_test.h"
-#include "json_spirit_utils.h"
+#include "json5_parser_utils.h"
 
 #include <boost/assign/list_of.hpp>
 
-using namespace json_spirit;
+using namespace json5_parser;
 using namespace std;
 using namespace boost::assign;
 
@@ -131,7 +131,7 @@ namespace
     };
 }
 
-void json_spirit::test_utils()
+void json5_parser::test_utils()
 {
 #ifdef JSON_SPIRIT_VALUE_ENABLED
     Test_runner< Object, Mapped_obj >().run_tests();

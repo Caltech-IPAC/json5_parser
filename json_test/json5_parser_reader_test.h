@@ -1,5 +1,5 @@
-#ifndef JSON_SPIRIT_VALUE_TEST
-#define JSON_SPIRIT_VALUE_TEST
+#ifndef JSON_SPIRIT_READER_TEST
+#define JSON_SPIRIT_READER_TEST
 
 //          Copyright John W. Wilkinson 2007 - 2014
 // Distributed under the MIT License, see accompanying file LICENSE.txt
@@ -10,9 +10,9 @@
 # pragma once
 #endif
 
-namespace json_spirit
+namespace json5_parser
 {
-    void test_value();
+    void test_reader();
 }
 
 #endif

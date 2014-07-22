@@ -10,7 +10,7 @@
 # pragma once
 #endif
 
-namespace json_spirit
+namespace json5_parser
 {
     enum Output_options{ none = 0,              // default options
 

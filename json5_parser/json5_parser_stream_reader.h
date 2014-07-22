@@ -10,9 +10,9 @@
 # pragma once
 #endif
 
-#include "json_spirit_reader_template.h"
+#include "json5_parser_reader_template.h"
 
-namespace json_spirit
+namespace json5_parser
 {
     // these classes allows you to read multiple top level contiguous values from a stream,
     // the normal stream read functions have a bug that prevent multiple top level values 

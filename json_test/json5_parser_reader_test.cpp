@@ -3,11 +3,11 @@
 
 // json spirit version 4.08
 
-#include "json_spirit_reader_test.h"
+#include "json5_parser_reader_test.h"
 #include "utils_test.h"
-#include "json_spirit_reader.h"
-#include "json_spirit_value.h" 
-#include "json_spirit_writer.h" 
+#include "json5_parser_reader.h"
+#include "json5_parser_value.h" 
+#include "json5_parser_writer.h" 
 
 #include <limits.h>
 #include <sstream>
@@ -15,7 +15,7 @@
 #include <boost/timer.hpp>
 #include <boost/lexical_cast.hpp>
 
-using namespace json_spirit;
+using namespace json5_parser;
 using namespace std;
 using namespace boost;
 using namespace boost::assign;
@@ -866,7 +866,7 @@ namespace
 
 //#include <fstream>
 
-void json_spirit::test_reader()
+void json5_parser::test_reader()
 {
 #ifdef JSON_SPIRIT_VALUE_ENABLED
     Test_runner< Config  >().run_tests();

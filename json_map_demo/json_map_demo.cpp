@@ -6,7 +6,7 @@
 // This demo shows you how to read and write JSON objects and arrays.
 // In this demo objects are stored as a map of names to values.
 
-#include "json_spirit.h"
+#include "json5_parser.h"
 #include <cassert>
 #include <fstream>
 
@@ -15,7 +15,7 @@
 #endif
 
 using namespace std;
-using namespace json_spirit;
+using namespace json5_parser;
 
 struct Address
 {

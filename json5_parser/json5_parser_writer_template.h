@@ -10,15 +10,15 @@
 # pragma once
 #endif
 
-#include "json_spirit_value.h"
-#include "json_spirit_writer_options.h"
+#include "json5_parser_value.h"
+#include "json5_parser_writer_options.h"
 
 #include <cassert>
 #include <sstream>
 #include <iomanip>
 #include <boost/io/ios_state.hpp>
 
-namespace json_spirit
+namespace json5_parser
 {
     inline char to_hex_char( unsigned int c )
     {
