@@ -547,6 +547,7 @@ namespace json_spirit
                     = strict_real_p[ new_real   ] 
                     | int64_p      [ new_int    ]
                     | uint64_p     [ new_uint64 ]
+                    | ( str_p("0x") >> hex_p [ new_uint64 ])
                     ;
             }
 
