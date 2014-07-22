@@ -209,7 +209,7 @@ namespace
               Value_type value;
 
               read_cstr( "{\n"
-                         "    name1 : 'value 1',\n"
+                         "    name1 : 'value \\\n1',\n"
                          "}", value );
 
               add_c_str( obj, "name1", "value 1" );

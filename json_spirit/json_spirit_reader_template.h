@@ -120,6 +120,7 @@ namespace json_spirit
                 }
                 break;
             }
+            case '\n':  break; // skip escaped newlines
         }
     }
 
