@@ -5,6 +5,11 @@ For using the cmake build system do the following steps:
 3. Create files for your build system
    "cmake .." generates makefiles for GNU automake
    "cmake -G Xcode" generates an Xcode project
+
+   If cmake can not find Boost, set the location by adding the option
+
+    -DBOOST_ROOT:PATH=/path/to/boost
+
 4. Start the build
 
 BOOST_ROOT Please set BOOST_ROOT to the root
