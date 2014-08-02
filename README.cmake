@@ -8,7 +8,11 @@ For using the cmake build system do the following steps:
 
    If cmake can not find Boost, set the location by adding the option
 
-    -DBOOST_ROOT:PATH=/path/to/boost
+     -DBOOST_ROOT:PATH=/path/to/boost
+
+   To have it install in a non-default directory add the option
+
+     -DCMAKE_INSTALL_PREFIX:PATH=/path/to/install/dir
 
 4. Start the build
 
