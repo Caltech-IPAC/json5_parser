@@ -1,21 +1,21 @@
-For using the cmake build system do the following steps:
+For using cmake build system do the following steps:
 
-1. Install cmake (under Ubuntu with "sudo apt-get install cmake", on Mac OS X with "sudo port install cmake")
-2. Create an build dir (for example json5_parser_v3.00/build) an switch to this new directory.
+1. Install cmake.  On Linux, you can use your package manager (e.g. yum or apt).
+2. Create a build dir (e.g. build/) and switch to this new directory.
 3. Create files for your build system
-   "cmake .." generates makefiles for GNU automake
-   "cmake -G Xcode" generates an Xcode project
 
-   If cmake can not find Boost, set the location by adding the option
+  Linux: cmake ..
+  Mac with Xcode: cmake -G Xcode
 
-     -DBOOST_ROOT:PATH=/path/to/boost
+  If cmake can not find Boost, set the location by setting BOOST_ROOT
 
-   To have it install in a non-default directory add the option
+    -DBOOST_ROOT:PATH=/path/to/boost
 
-     -DCMAKE_INSTALL_PREFIX:PATH=/path/to/install/dir
+  To have it somewhere other than /usr/local, add the option
 
-4. Start the build
+    -DCMAKE_INSTALL_PREFIX:PATH=/path/to/install/dir
 
-BOOST_ROOT Please set BOOST_ROOT to the root
-  directory containing Boost or BOOST_INCLUDEDIR to the directory containing
-  Boost's headers.
+4. Start the build.  On Linux, this would be
+
+  make
+  make install
