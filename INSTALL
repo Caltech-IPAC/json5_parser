@@ -1,0 +1,15 @@
+Prerequisites
+-------------
+C++ compiler
+Boost (http://boost.org).
+
+Build
+-----
+
+  python waf configure --prefix=/path/to/install/dir
+  python waf
+  python waf install
+
+For help with configure options
+
+  python waf configure --help
