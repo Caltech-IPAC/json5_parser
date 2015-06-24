@@ -41,7 +41,8 @@ def build(bld):
                 includes=includes,
                 cxxflags=default_flags,
                 rpath=[bld.env.LIBDIR],
-                use=use_packages + ['libjson5_parser_st']
+                use=use_packages + ['libjson5_parser_st'],
+                installpath=None
                 )
 
     bld.program(source=['json_map_demo/json_map_demo.cpp'],
@@ -49,7 +50,8 @@ def build(bld):
                 includes=includes,
                 cxxflags=default_flags,
                 rpath=[bld.env.LIBDIR],
-                use=use_packages + ['libjson5_parser_st']
+                use=use_packages + ['libjson5_parser_st'],
+                installpath=None
                 )
 
     bld.program(source=['json_headers_only_demo/json_headers_only_demo.cpp'],
@@ -57,11 +59,12 @@ def build(bld):
                 includes=includes,
                 cxxflags=default_flags,
                 rpath=[bld.env.LIBDIR],
-                use=use_packages
+                use=use_packages,
+                installpath=None
                 )
 
     # install headers
-    bld.install_files(bld.env.INCLUDEDIR + '/json5_parser',
+    bld.install_files(bld.env.INCLUDEDIR,
                       bld.path.ant_glob('json5_parser/*.h'),
                       cwd=bld.path.find_dir('json5_parser'),
                       relative_trick=True)
