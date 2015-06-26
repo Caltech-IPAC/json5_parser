@@ -31,7 +31,7 @@ namespace json5_parser
 {
     enum Value_type{ obj_type, array_type, str_type, bool_type, int_type, real_type, null_type };
 
-    static std::string value_type_to_string( Value_type vtype );
+    static inline std::string value_type_to_string( Value_type vtype );
 
     struct Null{};
     
