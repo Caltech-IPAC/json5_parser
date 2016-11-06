@@ -23,7 +23,8 @@ def build(bld):
               includes=includes,
               cxxflags=default_flags,
               install_path=os.path.join(bld.env.PREFIX, 'lib'),
-              use=use_packages
+              use=use_packages,
+              vnum='1.0.0'
               )
 
     bld.stlib(source=sources,
