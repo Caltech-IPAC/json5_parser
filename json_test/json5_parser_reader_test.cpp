@@ -450,7 +450,7 @@ namespace
 
             const Array_type arr = value.get_array();
 
-            assert_eq( arr.size(), 6 );
+            assert_eq( arr.size(), 6u );
             assert_eq( arr[0].get_real(), 1.2, 1e-16 );
             assert_eq( arr[1].get_real(), 1.234567890123456e+125, 1e+110 );
             assert_eq( arr[2].get_real(), -1.234e-123, 1e+108 );

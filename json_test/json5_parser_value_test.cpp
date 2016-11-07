@@ -260,23 +260,6 @@ namespace
         }
     }
 
-    template< typename ObjectType > void check_pair_typedefs( ObjectType &object )
-    {
-        typename ObjectType::value_type::String_type name = object[0].name_;
-        typename ObjectType::value_type::Value_type value = object[0].value_;
-    }
-
-    void check_pair_typedefs()
-    {
-        Object o;
-        check_pair_typedefs( o );
-        
-#if defined( JSON_SPIRIT_WVALUE_ENABLED ) && !defined( BOOST_NO_STD_WSTRING )
-        wObject wo;
-        check_pair_typedefs( wo );
-#endif
-    }
-
     void test_obj_map_implemention()
     {
 #ifdef JSON_SPIRIT_MVALUE_ENABLED

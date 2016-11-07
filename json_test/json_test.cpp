@@ -24,11 +24,6 @@ int main()
     test_utils();
 
     cout << "all tests passed" << endl << endl;
-    cout << "press any key to continue";
-
-    string s;
-    cin >> s;
-
 	return 0;
 }
 

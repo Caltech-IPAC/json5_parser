@@ -44,7 +44,7 @@ def build(bld):
                 cxxflags=default_flags,
                 rpath=[bld.env.LIBDIR],
                 use=use_packages + ['libjson5_parser_st'],
-                installpath=None
+                install_path=None
                 )
 
     bld.program(features='test',
@@ -54,7 +54,7 @@ def build(bld):
                 cxxflags=default_flags,
                 rpath=[bld.env.LIBDIR],
                 use=use_packages + ['libjson5_parser_st'],
-                installpath=None
+                install_path=None
                 )
 
     bld.program(features='test',
@@ -63,8 +63,25 @@ def build(bld):
                 includes=includes,
                 cxxflags=default_flags,
                 rpath=[bld.env.LIBDIR],
-                use=use_packages,
-                installpath=None
+                use=use_packages + ['libjson5_parser_st'],
+                install_path=None
+                )
+
+    bld.program(features='test',
+                source=['json_test/json5_parser_reader_test.cpp',
+                        'json_test/json5_parser_stream_reader_test.cpp',
+                        'json_test/json5_parser_utils_test.cpp',
+                        'json_test/json5_parser_value_test.cpp',
+                        'json_test/json5_parser_writer_test.cpp',
+                        'json_test/json_test.cpp',
+                        'json_test/utils_test.cpp'
+                    ],
+                target='json5_test',
+                includes=includes,
+                cxxflags=default_flags,
+                rpath=[bld.env.LIBDIR],
+                use=use_packages + ['libjson5_parser_st'],
+                install_path=None
                 )
 
     # install headers
