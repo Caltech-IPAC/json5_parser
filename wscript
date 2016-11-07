@@ -22,7 +22,7 @@ def build(bld):
               name='libjson5_parser_sh',
               includes=includes,
               cxxflags=default_flags,
-              install_path=os.path.join(bld.env.PREFIX, 'lib'),
+              install_path=bld.env.LIBDIR,
               use=use_packages,
               vnum='1.0.0'
               )
@@ -32,7 +32,7 @@ def build(bld):
               name='libjson5_parser_st',
               includes=includes,
               cxxflags=default_flags,
-              install_path=os.path.join(bld.env.PREFIX, 'lib'),
+              install_path=bld.env.LIBDIR,
               use=use_packages
               )
 
