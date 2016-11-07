@@ -1,10 +1,10 @@
 import os
 
 def options(opt):
-    opt.load('compiler_cxx gnu_dirs boost')
+    opt.load('compiler_cxx gnu_dirs boost waf_unit_test')
 
 def configure(conf):
-    conf.load('compiler_cxx gnu_dirs boost')
+    conf.load('compiler_cxx gnu_dirs boost waf_unit_test')
     conf.check_boost()
 
 def build(bld):
@@ -37,7 +37,8 @@ def build(bld):
               )
 
     # Demo programs
-    bld.program(source=['json_demo/json_demo.cpp'],
+    bld.program(features='test',
+                source=['json_demo/json_demo.cpp'],
                 target='json5_demo',
                 includes=includes,
                 cxxflags=default_flags,
@@ -46,7 +47,8 @@ def build(bld):
                 installpath=None
                 )
 
-    bld.program(source=['json_map_demo/json_map_demo.cpp'],
+    bld.program(features='test',
+                source=['json_map_demo/json_map_demo.cpp'],
                 target='json5_map_demo',
                 includes=includes,
                 cxxflags=default_flags,
@@ -55,7 +57,8 @@ def build(bld):
                 installpath=None
                 )
 
-    bld.program(source=['json_headers_only_demo/json_headers_only_demo.cpp'],
+    bld.program(features='test',
+                source=['json_headers_only_demo/json_headers_only_demo.cpp'],
                 target='json5_headers_only_demo',
                 includes=includes,
                 cxxflags=default_flags,
@@ -69,3 +72,6 @@ def build(bld):
                       bld.path.ant_glob('json5_parser/*.h'),
                       cwd=bld.path.find_dir('json5_parser'),
                       relative_trick=True)
+
+    from waflib.Tools import waf_unit_test
+    bld.add_post_fun(waf_unit_test.summary)
