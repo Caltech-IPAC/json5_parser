@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#DH_VERBOSE = 1
+
+# see EXAMPLES in dpkg-buildflags(1) and read /usr/share/dpkg/*
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/default.mk
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+# see FEATURE AREAS in dpkg-buildflags(1)
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# see ENVIRONMENT in dpkg-buildflags(1)
+# package maintainers to append CFLAGS
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# package maintainers to append LDFLAGS
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+
+# main packaging script based on dh7 syntax
+%:
+	dh $@ 
+
+# TODO add -g -O2 -fstack-protector-strong -Wformat -Werror=format-security
+override_dh_auto_configure:
+	waf configure --libdir=/usr/lib/$(DEB_HOST_MULTIARCH) --prefix=/usr
+
+override_dh_auto_build:
+	waf
+
+override_dh_auto_install:
+	waf install --destdir=debian/tmp --libdir=debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)
+
+override_dh_clean:
+	dh_clean *.pyc .lock-waf_linux_build
+	rm -rf build/

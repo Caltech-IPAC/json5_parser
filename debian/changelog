@@ -1,0 +1,5 @@
+json5-parser (1.0.0+dfsg-1) unstable; urgency=low
+
+  * Initial release (Closes: #843570)
+
+ -- Walter Landry <wlandry@caltech.edu>  Sat, 05 Nov 2016 21:32:08 -0700

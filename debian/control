@@ -1,0 +1,38 @@
+Source: json5-parser
+Priority: optional
+Maintainer: Walter Landry <wlandry@caltech.edu>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Section: libs
+Homepage: https://github.com/Caltech-IPAC/json5_parser
+#Vcs-Git: git://anonscm.debian.org/collab-maint/json5-parser.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/json5-parser.git;a=summary
+
+Package: libjson5-parser-dev
+Section: libdevel
+Architecture: any
+Depends: libboost-dev, libjson5-parser1 (= ${binary:Version}), ${misc:Depends}
+Description: C++ library to parse JSON5
+ JSON5_Parser is a C++ library that reads and writes JSON5 and JSON files or
+ streams. It is written using the Boost Spirit parser generator. If you
+ are already using Boost, you can use JSON Spirit without any additional
+ dependencies.
+ .
+ JSON5_Parser is a fork of the JSON Spirit library, with enhancements
+ for reading JSON5.
+ .
+ This package contains the files needed for development.
+ 
+Package: libjson5-parser1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C++ library to parse JSON5
+ JSON5_Parser is a C++ library that reads and writes JSON5 and JSON files or
+ streams. It is written using the Boost Spirit parser generator. If you
+ are already using Boost, you can use JSON Spirit without any additional
+ dependencies.
+ .
+ JSON5_Parser is a fork of the JSON Spirit library, with enhancements
+ for reading JSON5.
+ .
+ This package contains the shared library.
