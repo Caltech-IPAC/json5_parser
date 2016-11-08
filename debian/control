@@ -1,7 +1,7 @@
 Source: json5-parser
 Priority: optional
 Maintainer: Walter Landry <wlandry@caltech.edu>
-Build-Depends: debhelper (>= 9)
+Build-Depends: waf, libboost-dev, debhelper (>= 9)
 Standards-Version: 3.9.6
 Section: libs
 Homepage: https://github.com/Caltech-IPAC/json5_parser
