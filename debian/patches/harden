@@ -1,0 +1,15 @@
+Index: json5-parser-1.0.0/wscript
+===================================================================
+--- json5-parser-1.0.0.orig/wscript	2016-11-08 16:57:37.906831438 -0800
++++ json5-parser-1.0.0/wscript	2016-11-08 16:58:15.730829810 -0800
+@@ -8,7 +8,9 @@
+     conf.check_boost()
+ 
+ def build(bld):
+-    default_flags=['-Wall', '-Wextra', '-Ofast']
++    default_flags=['-Wall', '-Wextra', '-g', '-O3', '-fstack-protector-strong',
++                   '-Wformat', '-Werror=format-security']
++    # default_flags=['-Wall', '-Wextra', '-Ofast']
+     # default_flags=['-Wall', '-Wextra', '-g']
+     use_packages=['BOOST']
+     includes=['json5_parser']
