@@ -11,6 +11,7 @@ Homepage: https://github.com/Caltech-IPAC/json5_parser
 Package: libjson5-parser-dev
 Section: libdevel
 Architecture: any
+Multi-Arch: same
 Depends: libboost-dev, libjson5-parser1 (= ${binary:Version}), ${misc:Depends}
 Description: C++ library to parse JSON5
  JSON5_Parser is a C++ library that reads and writes JSON5 and JSON files or
@@ -25,6 +26,7 @@ Description: C++ library to parse JSON5
  
 Package: libjson5-parser1
 Architecture: any
+Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: C++ library to parse JSON5
  JSON5_Parser is a C++ library that reads and writes JSON5 and JSON files or
