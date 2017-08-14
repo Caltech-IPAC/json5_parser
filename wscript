@@ -5,7 +5,7 @@ def options(opt):
 
 def configure(conf):
     conf.load('compiler_cxx gnu_dirs boost waf_unit_test')
-    conf.check_boost()
+    conf.check_boost(lib='system thread')
 
 def build(bld):
     default_flags=['-Wall', '-Wextra', '-Ofast']
