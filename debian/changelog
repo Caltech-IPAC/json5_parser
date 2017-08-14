@@ -1,3 +1,9 @@
+json5-parser (1.0.1+dfsg-1) unstable; urgency=low
+
+  * Enable multithreading
+
+ -- Walter Landry <wlandry@caltech.edu>  Mon, 14 Aug 2017 14:31:58 -0700
+
 json5-parser (1.0.0+dfsg-1) unstable; urgency=low
 
   * Initial release (Closes: #843570)
