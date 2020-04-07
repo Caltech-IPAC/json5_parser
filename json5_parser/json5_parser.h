@@ -7,12 +7,12 @@
 // json spirit version 4.08
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
-# pragma once
+#pragma once
 #endif
 
-#include "json5_parser_value.h"
 #include "json5_parser_reader.h"
-#include "json5_parser_writer.h"
 #include "json5_parser_utils.h"
+#include "json5_parser_value.h"
+#include "json5_parser_writer.h"
 
 #endif

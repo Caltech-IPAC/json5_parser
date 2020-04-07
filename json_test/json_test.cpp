@@ -3,20 +3,19 @@
 
 // json spirit version 4.08
 
-#include "json5_parser_value_test.h"
-#include "json5_parser_writer_test.h"
 #include "json5_parser_reader_test.h"
 #include "json5_parser_stream_reader_test.h"
 #include "json5_parser_utils_test.h"
+#include "json5_parser_value_test.h"
+#include "json5_parser_writer_test.h"
 
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 using namespace json5_parser;
 
-int main()
-{
+int main() {
     test_value();
     test_writer();
     test_reader();
@@ -24,6 +23,5 @@ int main()
     test_utils();
 
     cout << "all tests passed" << endl << endl;
-	return 0;
+    return 0;
 }
-
