@@ -8,6 +8,7 @@
 
 #include <cassert>
 #include <fstream>
+
 #include "json5_parser.h"
 
 #ifndef JSON_SPIRIT_VALUE_ENABLED
@@ -103,6 +104,7 @@ vector<Address> read_addrs(const char* file_name) {
 }
 
 int main() {
+
     const Address addrs[5] = {{42, "East Street", "Newtown", "Essex", "England"},
                               {1, "West Street", "Hull", "Yorkshire", "England"},
                               {12, "South Road", "Aberystwyth", "Dyfed", "Wales"},
@@ -121,5 +123,6 @@ int main() {
         assert(new_addrs[i] == addrs[i]);
     }
 
+    std::cout << "json_demo tests all passed" << std::endl;
     return 0;
 }

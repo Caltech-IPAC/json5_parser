@@ -64,6 +64,6 @@ void read_or_throw(std::wistream& is, wmValue& value);
 void read_or_throw(std::wstring::const_iterator& begin,
                    std::wstring::const_iterator end, wmValue& value);
 #endif
-}
+}  // namespace json5_parser
 
 #endif

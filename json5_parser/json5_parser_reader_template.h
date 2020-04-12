@@ -10,6 +10,9 @@
 #pragma once
 #endif
 
+#include <boost/algorithm/string.hpp>
+#include <string>
+
 #include "json5_parser_error_position.h"
 #include "json5_parser_value.h"
 
@@ -248,7 +251,7 @@ public:
 
         String_type result;
         result.append(begin, end);
-        name_ = result;
+        name_ = boost::algorithm::trim_right_copy(result);
     }
 
     void new_str(Iter_type begin, Iter_type end) {
@@ -359,15 +362,15 @@ void throw_error(Iter_type, const std::string& reason) {
     throw reason;
 }
 
-// the spirit grammer
+// the spirit grammar
 //
 template <class Value_type, class Iter_type>
-class Json_grammer
-        : public spirit_namespace::grammar<Json_grammer<Value_type, Iter_type> > {
+class Json_grammar
+        : public spirit_namespace::grammar<Json_grammar<Value_type, Iter_type> > {
 public:
     typedef Semantic_actions<Value_type, Iter_type> Semantic_actions_t;
 
-    Json_grammer(Semantic_actions_t& semantic_actions) : actions_(semantic_actions) {}
+    Json_grammar(Semantic_actions_t& semantic_actions) : actions_(semantic_actions) {}
 
     static void throw_not_value(Iter_type begin, Iter_type) {
         throw_error(begin, "not a value");
@@ -400,7 +403,7 @@ public:
     template <typename ScannerT>
     class definition {
     public:
-        definition(const Json_grammer& self) {
+        definition(const Json_grammar& self) {
             using namespace spirit_namespace;
 
             typedef typename Value_type::String_type::value_type Char_type;
@@ -445,7 +448,7 @@ public:
             Uint64_action new_uint64(
                     boost::bind(&Semantic_actions_t::new_uint64, &self.actions_, _1));
 
-            // actual grammer
+            // actual grammar
 
             json_ = value_ | eps_p[&throw_not_value];
 
@@ -472,12 +475,12 @@ public:
             double_quoted_string_ =
                     lexeme_d  // this causes white space and what would appear to be
                               // comments inside a string to be retained
-                                      [confix_p('"', *lex_escape_ch_p, '"')];
+                            [confix_p('"', *lex_escape_ch_p, '"')];
 
             single_quoted_string_ =
                     lexeme_d  // this causes white space and what would appear to be
                               // comments inside a string to be retained
-                                      [confix_p('\'', *lex_escape_ch_p, '\'')];
+                            [confix_p('\'', *lex_escape_ch_p, '\'')];
 
             identifier_ = (alpha_p | ch_p('_') | ch_p('$')) >>
                           *(alnum_p | ch_p('_') | ch_p('$'));
@@ -494,7 +497,7 @@ public:
     };
 
 private:
-    Json_grammer& operator=(const Json_grammer&);  // to prevent "assignment operator
+    Json_grammar& operator=(const Json_grammar&);  // to prevent "assignment operator
                                                    // could not be generated" warning
 
     Semantic_actions_t& actions_;
@@ -543,7 +546,7 @@ Iter_type read_range_or_throw(Iter_type begin, Iter_type end, Value_type& value)
     Semantic_actions<Value_type, Iter_type> semantic_actions(value);
 
     const spirit_namespace::parse_info<Iter_type> info = spirit_namespace::parse(
-            begin, end, Json_grammer<Value_type, Iter_type>(semantic_actions),
+            begin, end, Json_grammar<Value_type, Iter_type>(semantic_actions),
             spirit_namespace::space_p | spirit_namespace::comment_p("//") |
                     spirit_namespace::comment_p("/*", "*/"));
 

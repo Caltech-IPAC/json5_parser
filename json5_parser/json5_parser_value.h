@@ -46,7 +46,7 @@ struct Null {};
 template <class Config>  // Config determines whether the value uses std::string or
                          // std::wstring and whether JSON Objects are represented as
                          // vectors or maps
-                         class Value_impl {
+class Value_impl {
 public:
     typedef Config Config_type;
     typedef typename Config::String_type String_type;

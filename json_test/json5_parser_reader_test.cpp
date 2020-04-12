@@ -203,36 +203,52 @@ struct Test_runner {
             check_eq(value.get_obj(), obj);
         }
 
-        Object_type obj;
-        Value_type value;
+        {
+            Object_type obj;
+            Value_type value;
 
-        read_cstr(
-                "{\n"
-                "    \"name 1\" : \"value 1\"\n"
-                "}",
-                value);
+            read_cstr(
+                    "{\n"
+                    "    \"name 1\" : \"value 1\"\n"
+                    "}",
+                    value);
 
-        add_c_str(obj, "name 1", "value 1");
+            add_c_str(obj, "name 1", "value 1");
 
-        check_eq(value.get_obj(), obj);
+            check_eq(value.get_obj(), obj);
 
-        read_cstr("{\"name 1\":\"value 1\",\"name 2\":\"value 2\"}", value);
+            read_cstr("{\"name 1\":\"value 1\",\"name 2\":\"value 2\"}", value);
 
-        add_c_str(obj, "name 2", "value 2");
+            add_c_str(obj, "name 2", "value 2");
 
-        check_eq(value.get_obj(), obj);
+            check_eq(value.get_obj(), obj);
 
-        read_cstr(
-                "{\n"
-                "    \"name 1\" : \"value 1\",\n"
-                "    \"name 2\" : \"value 2\",\n"
-                "    \"name 3\" : \"value 3\"\n"
-                "}",
-                value);
+            read_cstr(
+                    "{\n"
+                    "    \"name 1\" : \"value 1\",\n"
+                    "    \"name 2\" : \"value 2\",\n"
+                    "    \"name 3\" : \"value 3\"\n"
+                    "}",
+                    value);
 
-        add_c_str(obj, "name 3", "value 3");
+            add_c_str(obj, "name 3", "value 3");
 
-        check_eq(value.get_obj(), obj);
+            check_eq(value.get_obj(), obj);
+        }
+
+        {
+            Object_type obj;
+            Value_type value;
+
+            read_cstr(
+                    "{\n"
+                    " name 1 : \"value 1\"\n"
+                    "}",
+                    value);
+
+            add_c_str(obj, "name 1", "value 1");
+            check_eq(value.get_obj(), obj);
+        }
 
         check_reading(
                 "{\n"
@@ -715,8 +731,11 @@ struct Test_runner {
         Istringstream_type is(str);
 
         check_reading_array(is, 0);
+        is.unget();
         check_reading_array(is, 1);
+        is.unget();
         check_reading_array(is, 2);
+        is.unget();
         check_reading_array(is, 3);
     }
 
@@ -729,12 +748,9 @@ struct Test_runner {
         check_value_sequence("     10 11 12", list_of(10)(11)(12), true);
         check_value_sequence("10 11 12", list_of(10)(11)(12), true);
 
-        //
-
+        // Note: check_reading_arrays() expects exactly this list of arrays.
         check_reading_arrays("[] [ 1 ] [ 1, 2 ] [ 1, 2, 3 ]");
-        //         check_reading_arrays( "[][1][1,2][1,2,3]" );  // fails due to
-        //         multi_pass iterator bug,
-        // use stream_reader class instead
+        check_reading_arrays("[][1][1,2][1,2,3]");
     }
 
     void test_uint64(const char* value_str, int expected_int, int64_t expected_int64,
@@ -801,16 +817,27 @@ struct Test_runner {
     }
 
     void run_tests() {
+        std::cout << "   before test_syntax()" << std::endl;
         test_syntax();
+        std::cout << "   before test_reading()" << std::endl;
         test_reading();
+        std::cout << "   before test_reading_reals()" << std::endl;
         test_reading_reals();
+        std::cout << "   before test_from_stream()" << std::endl;
         test_from_stream();
+        std::cout << "   before test_escape_chars()" << std::endl;
         test_escape_chars();
+        std::cout << "   before test_values()" << std::endl;
         test_values();
+        std::cout << "   before test_error_cases()" << std::endl;
         test_error_cases();
+        std::cout << "   before test_sequence_of_values()" << std::endl;
         test_sequence_of_values();
+        std::cout << "   before test_uint64()" << std::endl;
         test_uint64();
+        std::cout << "   before test_types()" << std::endl;
         test_types();
+        std::cout << "   before test_comments()" << std::endl;
         test_comments();
     }
 };
@@ -848,17 +875,25 @@ void test_extended_ascii() {
 
 void json5_parser::test_reader() {
 #ifdef JSON_SPIRIT_VALUE_ENABLED
+    std::cout << "   JSON_SPIRIT_VALUE_ENABLED" << std::endl;
     Test_runner<Config>().run_tests();
     test_extended_ascii();
 #endif
 #ifdef JSON_SPIRIT_MVALUE_ENABLED
+    std::cout << "   JSON_SPIRIT_MVALUE_ENABLED" << std::endl;
     Test_runner<mConfig>().run_tests();
 #endif
 #if defined(JSON_SPIRIT_WVALUE_ENABLED) && !defined(BOOST_NO_STD_WSTRING)
+    std::cout << "   defined(JSON_SPIRIT_WVALUE_ENABLED) && "
+                 "!defined(BOOST_NO_STD_WSTRING)"
+              << std::endl;
     Test_runner<wConfig>().run_tests();
     test_wide_esc_u();
 #endif
 #if defined(JSON_SPIRIT_WMVALUE_ENABLED) && !defined(BOOST_NO_STD_WSTRING)
+    std::cout << "   defined(JSON_SPIRIT_WMVALUE_ENABLED) && "
+                 "!defined(BOOST_NO_STD_WSTRING)"
+              << std::endl;
     Test_runner<wmConfig>().run_tests();
 #endif
 
@@ -880,7 +915,7 @@ void json5_parser::test_reader() {
 
     // cout << t.elapsed() << endl;
 
-//    const string so = write( value );
+    //    const string so = write( value );
 
     // Object obj;
 

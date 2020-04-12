@@ -8,7 +8,7 @@ def configure(conf):
     conf.check_boost(lib='system thread')
 
 def build(bld):
-    default_flags=['-Wall', '-Wextra', '-Ofast']
+    default_flags=['-Wall', '-Wextra', '-O3']
     # default_flags=['-Wall', '-Wextra', '-g']
     use_packages=['BOOST']
     includes=['json5_parser']

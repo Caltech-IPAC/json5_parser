@@ -341,20 +341,27 @@ public:
     Container_constructor_runner() {
         vector<double> vd = list_of(1.2)(1.3);
         test_container_constructor(vd);
+
         vector<int> vi = list_of(1);
         test_container_constructor(vi);
-        vi = list_of(1)(2);
-        test_container_constructor(vi);
-        vi = list_of(1)(2)(3);
-        test_container_constructor(vi);
+
+        vector<int> vi2 = list_of(1)(2);
+        test_container_constructor(vi2);
+
+        vector<int> vi3 = list_of(1)(2)(3);
+        test_container_constructor(vi3);
+
         list<double> ld = list_of(1.2)(1.3);
         test_container_constructor(ld);
+
         list<int> li = list_of(1);
         test_container_constructor(li);
-        li = list_of(1)(2);
-        test_container_constructor(li);
-        li = list_of(1)(2)(3);
-        test_container_constructor(li);
+
+        list<int> li2 = list_of(1)(2);
+        test_container_constructor(li2);
+
+        list<int> li3 = list_of(1)(2)(3);
+        test_container_constructor(li3);
     }
 
 private:
@@ -413,20 +420,27 @@ public:
 
         vector<double> vd = list_of(1.2)(1.3);
         test_variant_array_constructor<double>(vd);
+
         vector<int> vi = list_of(1);
         test_variant_array_constructor<int>(vi);
-        vi = list_of(1)(2);
-        test_variant_array_constructor<int>(vi);
-        vi = list_of(1)(2)(3);
-        test_variant_array_constructor<int>(vi);
+
+        vector<int> vi2 = list_of(1)(2);
+        test_variant_array_constructor<int>(vi2);
+
+        vector<int> vi3 = list_of(1)(2)(3);
+        test_variant_array_constructor<int>(vi3);
+
         list<double> ld = list_of(1.2)(1.3);
         test_variant_array_constructor<double>(ld);
+
         list<int> li = list_of(1);
         test_variant_array_constructor<int>(li);
-        li = list_of(1)(2);
-        test_variant_array_constructor<int>(li);
-        li = list_of(1)(2)(3);
-        test_variant_array_constructor<int>(li);
+
+        list<int> li2 = list_of(1)(2);
+        test_variant_array_constructor<int>(li2);
+
+        list<int> li3 = list_of(1)(2)(3);
+        test_variant_array_constructor<int>(li3);
     }
 
 private:
@@ -469,7 +483,7 @@ void test_variant_constructor() {
     Variant_constructor_runner<wmConfig>();
 #endif
 }
-}
+}  // namespace
 
 void json5_parser::test_value() {
 #ifdef JSON_SPIRIT_VALUE_ENABLED

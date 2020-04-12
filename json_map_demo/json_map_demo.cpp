@@ -8,6 +8,7 @@
 
 #include <cassert>
 #include <fstream>
+
 #include "json5_parser.h"
 
 #ifndef JSON_SPIRIT_MVALUE_ENABLED
@@ -103,7 +104,7 @@ int main() {
                               {45, "North Road", "Paignton", "Devon", "England"},
                               {78, "Upper Street", "Ware", "Hertfordshire", "England"}};
 
-    const char* file_name("demo.txt");
+    const char* file_name("map_demo.txt");
 
     write_addrs(file_name, addrs);
 
@@ -115,5 +116,6 @@ int main() {
         assert(new_addrs[i] == addrs[i]);
     }
 
+    std::cout << "json_map_demo tests all passed" << std::endl;
     return 0;
 };

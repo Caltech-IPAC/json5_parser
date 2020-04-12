@@ -73,6 +73,6 @@ void write_formatted(const wmValue& value, std::wostream& os,
 std::wstring write_formatted(const wmValue& value,
                              unsigned int precision_of_doubles = 0);
 #endif
-}
+}  // namespace json5_parser
 
 #endif

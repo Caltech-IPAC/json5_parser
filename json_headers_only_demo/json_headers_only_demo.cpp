@@ -9,6 +9,7 @@
 
 #include <cassert>
 #include <fstream>
+
 #include "json5_parser_reader_template.h"
 #include "json5_parser_writer_template.h"
 
@@ -112,7 +113,9 @@ int main() {
                               {45, "North Road", "Paignton", "Devon", "England"},
                               {78, "Upper Street", "Ware", "Hertfordshire", "England"}};
 
-    const char* file_name("demo.txt");
+
+    // Changed from "demo.txt" because tests were failing.  NSF weirdness?
+    const char* file_name("/tmp/json5_demo.txt");
 
     write_addrs(file_name, addrs);
 
@@ -124,5 +127,6 @@ int main() {
         assert(new_addrs[i] == addrs[i]);
     }
 
+    std::cout << "json_headers_only_demo tests all passed" << std::endl;
     return 0;
 }
