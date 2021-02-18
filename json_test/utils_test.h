@@ -7,7 +7,7 @@
 // json spirit version 4.08
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
-# pragma once
+#pragma once
 #endif
 
 #include <cassert>
@@ -15,22 +15,20 @@
 
 // these functions allow you to inspect the values that caused a test to fail
 
-template< class T1, class T2 >
-void assert_eq( const T1& t1, const T2& t2 )
-{
-    if( t1 == t2 ) return;
+template <class T1, class T2>
+void assert_eq(const T1& t1, const T2& t2) {
+    if (t1 == t2) return;
 
-    assert( false );
+    assert(false);
 }
 
-template< class T1, class T2 >
-void assert_neq( const T1& t1, const T2& t2 )
-{
-    if( !(t1 == t2) ) return;
+template <class T1, class T2>
+void assert_neq(const T1& t1, const T2& t2) {
+    if (!(t1 == t2)) return;
 
-    assert( false );
+    assert(false);
 }
 
-void assert_eq( const double d1, const double d2, const double abs_error );
+void assert_eq(const double d1, const double d2, const double abs_error);
 
 #endif

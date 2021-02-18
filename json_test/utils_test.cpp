@@ -5,11 +5,10 @@
 
 #include "utils_test.h"
 
-void assert_eq( const double d1, const double d2, const double abs_error )
-{
-    const double err = fabs( d1 - d2 );
+void assert_eq(const double d1, const double d2, const double abs_error) {
+    const double err = fabs(d1 - d2);
 
-    if( err <= abs_error ) return;
+    if (err <= abs_error) return;
 
-    assert( false );
+    assert(false);
 }

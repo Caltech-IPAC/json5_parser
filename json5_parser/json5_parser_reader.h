@@ -7,56 +7,63 @@
 // json spirit version 4.08
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
-# pragma once
+#pragma once
 #endif
 
-#include "json5_parser_value.h"
-#include "json5_parser_error_position.h"
 #include <iostream>
+#include "json5_parser_error_position.h"
+#include "json5_parser_value.h"
 
-namespace json5_parser
-{
-    // functions to reads a JSON values
+namespace json5_parser {
+// functions to reads a JSON values
 
 #ifdef JSON_SPIRIT_VALUE_ENABLED
-    bool read( const std::string& s, Value& value );
-    bool read( std::istream& is,     Value& value );
-    bool read( std::string::const_iterator& begin, std::string::const_iterator end, Value& value );
+bool read(const std::string& s, Value& value);
+bool read(std::istream& is, Value& value);
+bool read(std::string::const_iterator& begin, std::string::const_iterator end,
+          Value& value);
 
-    void read_or_throw( const std::string& s, Value& value );  
-    void read_or_throw( std::istream& is,     Value& value );
-    void read_or_throw( std::string::const_iterator& begin, std::string::const_iterator end, Value& value );
+void read_or_throw(const std::string& s, Value& value);
+void read_or_throw(std::istream& is, Value& value);
+void read_or_throw(std::string::const_iterator& begin, std::string::const_iterator end,
+                   Value& value);
 #endif
 
-#if defined( JSON_SPIRIT_WVALUE_ENABLED ) && !defined( BOOST_NO_STD_WSTRING )
-    bool read( const std::wstring& s, wValue& value );
-    bool read( std::wistream&  is,    wValue& value );
-    bool read( std::wstring::const_iterator& begin, std::wstring::const_iterator end, wValue& value );    
+#if defined(JSON_SPIRIT_WVALUE_ENABLED) && !defined(BOOST_NO_STD_WSTRING)
+bool read(const std::wstring& s, wValue& value);
+bool read(std::wistream& is, wValue& value);
+bool read(std::wstring::const_iterator& begin, std::wstring::const_iterator end,
+          wValue& value);
 
-    void read_or_throw( const std::wstring& s, wValue& value );
-    void read_or_throw( std::wistream& is,     wValue& value );
-    void read_or_throw( std::wstring::const_iterator& begin, std::wstring::const_iterator end, wValue& value );
+void read_or_throw(const std::wstring& s, wValue& value);
+void read_or_throw(std::wistream& is, wValue& value);
+void read_or_throw(std::wstring::const_iterator& begin,
+                   std::wstring::const_iterator end, wValue& value);
 #endif
 
 #ifdef JSON_SPIRIT_MVALUE_ENABLED
-    bool read( const std::string& s, mValue& value );
-    bool read( std::istream& is,     mValue& value );
-    bool read( std::string::const_iterator& begin, std::string::const_iterator end, mValue& value );
+bool read(const std::string& s, mValue& value);
+bool read(std::istream& is, mValue& value);
+bool read(std::string::const_iterator& begin, std::string::const_iterator end,
+          mValue& value);
 
-    void read_or_throw( const std::string& s, mValue& value );  
-    void read_or_throw( std::istream& is,     mValue& value );
-    void read_or_throw( std::string::const_iterator& begin, std::string::const_iterator end, mValue& value );
+void read_or_throw(const std::string& s, mValue& value);
+void read_or_throw(std::istream& is, mValue& value);
+void read_or_throw(std::string::const_iterator& begin, std::string::const_iterator end,
+                   mValue& value);
 #endif
 
-#if defined( JSON_SPIRIT_WMVALUE_ENABLED ) && !defined( BOOST_NO_STD_WSTRING )
-    bool read( const std::wstring& s, wmValue& value );
-    bool read( std::wistream& is,     wmValue& value );
-    bool read( std::wstring::const_iterator& begin, std::wstring::const_iterator end, wmValue& value );    
+#if defined(JSON_SPIRIT_WMVALUE_ENABLED) && !defined(BOOST_NO_STD_WSTRING)
+bool read(const std::wstring& s, wmValue& value);
+bool read(std::wistream& is, wmValue& value);
+bool read(std::wstring::const_iterator& begin, std::wstring::const_iterator end,
+          wmValue& value);
 
-    void read_or_throw( const std::wstring& s, wmValue& value );
-    void read_or_throw( std::wistream& is,     wmValue& value );
-    void read_or_throw( std::wstring::const_iterator& begin, std::wstring::const_iterator end, wmValue& value );
+void read_or_throw(const std::wstring& s, wmValue& value);
+void read_or_throw(std::wistream& is, wmValue& value);
+void read_or_throw(std::wstring::const_iterator& begin,
+                   std::wstring::const_iterator end, wmValue& value);
 #endif
-}
+}  // namespace json5_parser
 
 #endif

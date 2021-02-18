@@ -7,12 +7,11 @@
 // json spirit version 4.08
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
-# pragma once
+#pragma once
 #endif
 
-namespace json5_parser
-{
-    void test_reader();
+namespace json5_parser {
+void test_reader();
 }
 
 #endif
