@@ -9,6 +9,7 @@
 
 #include <cassert>
 #include <fstream>
+#include <boost/bind/bind.hpp>
 
 #include "json5_parser_reader_template.h"
 #include "json5_parser_writer_template.h"
@@ -19,6 +20,7 @@
 
 using namespace std;
 using namespace json5_parser;
+
 
 struct Address {
     int house_number_;

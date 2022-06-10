@@ -12,7 +12,7 @@
 #include <limits.h>
 #include <boost/assign/list_of.hpp>
 #include <boost/lexical_cast.hpp>
-#include <boost/timer.hpp>
+#include <boost/timer/timer.hpp>
 #include <sstream>
 
 using namespace json5_parser;

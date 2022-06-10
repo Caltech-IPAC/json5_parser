@@ -14,12 +14,16 @@
 #include <boost/cstdint.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/variant.hpp>
+//#include <boost/bind/bind.hpp>
+
 #include <cassert>
 #include <map>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <vector>
+
+//using namespace boost::placeholders;
 
 // comment out the value types you don't need to reduce build times and intermediate
 // file sizes

@@ -7,7 +7,7 @@ json5_parser_writer_test.cpp json5_parser_writer_test.h
 utils_test.cpp utils_test.h
 json_test.cpp)
 
-FIND_PACKAGE(Boost 1.34 REQUIRED)
+#FIND_PACKAGE(Boost 1.34 REQUIRED)
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 
 ADD_EXECUTABLE(json_test ${JSON_TEST_SRCS})
