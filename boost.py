@@ -54,8 +54,7 @@ from waflib import Utils, Logs, Errors
 from waflib.Configure import conf
 from waflib.TaskGen import feature, after_method
 
-BOOST_LIBS = ['/usr/lib/x86_64-linux-gnu', '/usr/lib/i386-linux-gnu',
-			  '/usr/lib', '/usr/local/lib', '/opt/local/lib', '/sw/lib', '/lib']
+BOOST_LIBS = ['/usr/lib/x86_64-linux-gnu', '/usr/lib/i386-linux-gnu', '/usr/lib/aarch64-linux-gnu', '/usr/lib', '/usr/local/lib', '/opt/local/lib', '/sw/lib', '/lib']
 BOOST_INCLUDES = ['/usr/include', '/usr/local/include', '/opt/local/include', '/sw/include']
 BOOST_VERSION_FILE = 'boost/version.hpp'
 BOOST_VERSION_CODE = '''
