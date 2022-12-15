@@ -517,7 +517,7 @@ namespace json5_parser
                     ;
 
                 pair_
-                    = (double_quoted_string_[ new_name ] | identifier_[ new_identifier ]) 
+                    = (single_quoted_string_[ new_name ] | double_quoted_string_[ new_name ] | identifier_[ new_identifier ]) 
                     >> ( ':' | eps_p[ &throw_not_colon ] )
                     >> ( value_ | eps_p[ &throw_not_value ] )
                     ;
