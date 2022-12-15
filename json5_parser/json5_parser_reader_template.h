@@ -15,7 +15,7 @@
 
 #define BOOST_SPIRIT_THREADSAFE  // uncomment for multithreaded use, requires linking to boost.thread
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/function.hpp>
 #include <boost/version.hpp>
 
@@ -37,6 +37,7 @@
 
 namespace json5_parser
 {
+    using namespace boost::placeholders;
     const spirit_namespace::int_parser < boost::int64_t >  int64_p  = spirit_namespace::int_parser < boost::int64_t  >();
     const spirit_namespace::uint_parser< boost::uint64_t > uint64_p = spirit_namespace::uint_parser< boost::uint64_t >();
 
@@ -312,6 +313,13 @@ namespace json5_parser
 
             add_to_current( -std::numeric_limits<double>::infinity() );
         }
+      
+        void new_nan( Iter_type begin, Iter_type end )
+        {
+            assert( is_eq( begin, end, "NaN" ) );
+
+            add_to_current( -std::numeric_limits<double>::quiet_NaN() );
+        }
 
     private:
 
@@ -474,6 +482,7 @@ namespace json5_parser
                 Real_action   new_real   ( boost::bind( &Semantic_actions_t::new_real,    &self.actions_, _1 ) );
                 Str_action    new_infinity ( boost::bind( &Semantic_actions_t::new_infinity, &self.actions_, _1, _2 ) );
                 Str_action    new_minus_infinity ( boost::bind( &Semantic_actions_t::new_minus_infinity, &self.actions_, _1, _2 ) );
+                Str_action    new_nan ( boost::bind( &Semantic_actions_t::new_nan, &self.actions_, _1, _2 ) );
                 Int_action    new_int    ( boost::bind( &Semantic_actions_t::new_int,     &self.actions_, _1 ) );
                 Uint64_action new_uint64 ( boost::bind( &Semantic_actions_t::new_uint64,  &self.actions_, _1 ) );
 
@@ -494,6 +503,7 @@ namespace json5_parser
                     | str_p( "null" ) [ new_null  ]
                     | (!ch_p('+') >> str_p( "Infinity" ) [ new_infinity ])
                     | str_p( "-Infinity" ) [ new_minus_infinity ]
+                    | str_p( "NaN" ) [ new_nan ]
                     ;
 
                 object_ 
@@ -507,7 +517,7 @@ namespace json5_parser
                     ;
 
                 pair_
-                    = (double_quoted_string_[ new_name ] | identifier_[ new_identifier ]) 
+                    = (single_quoted_string_[ new_name ] | double_quoted_string_[ new_name ] | identifier_[ new_identifier ]) 
                     >> ( ':' | eps_p[ &throw_not_colon ] )
                     >> ( value_ | eps_p[ &throw_not_value ] )
                     ;
