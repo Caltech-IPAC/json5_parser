@@ -190,7 +190,12 @@ namespace json5_parser
 
         void output( double d )
         {
+          if (std::isfinite(d))
             os_ << std::setprecision( precision_of_doubles_ ) << d;
+          else if (std::isnan(d))
+            os_<<"NaN";
+          else // is infinite
+            os_<<(d<0?"-":"")<<"Infinity";
         }
 
         static bool contains_composite_elements( const Array_type& arr )
