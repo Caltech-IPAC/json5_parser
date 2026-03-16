@@ -140,7 +140,7 @@ String_type substitute_esc_chars(typename String_type::const_iterator begin,
                                  typename String_type::const_iterator end) {
     typedef typename String_type::const_iterator Iter_type;
 
-    if (end - begin < 2) return String_type(begin, end);
+    if (end < begin + 2) return String_type(begin, end);
 
     String_type result;
 

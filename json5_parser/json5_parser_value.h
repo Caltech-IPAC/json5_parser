@@ -119,6 +119,8 @@ private:
 
     class Variant_converter_visitor : public boost::static_visitor<Variant> {
     public:
+        Variant operator()(const String_type& value) const { return value; }
+
         template <typename T, typename A, template <typename, typename> class Cont>
         Variant operator()(const Cont<T, A>& cont) const {
             return Array(cont.begin(), cont.end());
