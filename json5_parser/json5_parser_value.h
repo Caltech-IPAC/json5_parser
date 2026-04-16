@@ -12,9 +12,7 @@
 
 #include <boost/config.hpp>
 #include <boost/cstdint.hpp>
-#include <boost/shared_ptr.hpp>
 #include <boost/variant.hpp>
-//#include <boost/bind/bind.hpp>
 
 #include <cassert>
 #include <map>
